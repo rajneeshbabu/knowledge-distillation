@@ -311,12 +311,10 @@
       <li><strong>More student capacity</strong> &mdash; a wider penultimate layer, so there is something to distil into.</li>
     </ol>
 <pre style="margin-top:1.75rem">pip install -r requirements.txt
-python distill.py     # teacher, logit cache, both students -> runs/results.json
-python sweep.py       # the alpha sweep with the validation split</pre>
+jupyter lab knowledge_distillation.ipynb   # run_all() and sweep() are in sections 4 and 5</pre>
     <p style="margin-top:1rem;color:var(--text3);font-size:.9rem">
-      CPU only. Every number on this page is read out of <code>results.json</code>,
-      <code>results_weak_teacher.json</code> and <code>sweep_results.json</code>. None were
-      typed in by hand.
+      CPU only. Every number on this page is read out of <code>results.json</code>. None were typed in by
+      hand.
     </p>
   </div>
 </section>

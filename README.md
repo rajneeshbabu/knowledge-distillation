@@ -41,7 +41,7 @@ receives features it has never seen, and a few epochs nowhere near repairs that.
 
 The teacher came out **below the student it was supposed to teach**, and distilling from it
 **cost 3.0 points**. Which is exactly right: soft targets from a model worse than you are
-are worse than the labels. Raw numbers in `results_weak_teacher.json`.
+are worse than the labels. Raw numbers under `experiment_1_weak_teacher` in `results.json`.
 
 **Fix:** keep the pretrained stem and upsample CIFAR to 64×64 instead. Every pretrained
 weight then does the job it was trained for, and layer1 runs at 16×16 instead of 32×32 —
@@ -148,41 +148,25 @@ and α would stop meaning the same thing from one temperature to the next.
 
 ```bash
 pip install -r requirements.txt
-python distill.py     # teacher, logit cache, both students -> runs/results.json
-python sweep.py       # the alpha sweep with the validation split
+jupyter lab knowledge_distillation.ipynb
 ```
 
-CPU only. About two hours for `distill.py`, eighty minutes for `sweep.py` on two cores.
+Everything is in that one notebook: the models, the training loops, the sweep and the
+figures. Sections 1–5 are the code; section 6 loads the recorded results. To reproduce
+rather than read, call `run_all()` and `sweep()` — about three hours on two CPU cores, most
+of it the teacher.
 
-## Repository layout
-
-The files that produced every number above:
+## Files
 
 ```
-distill.py                      teacher, logit cache, baseline and distilled students
-sweep.py                        alpha sweep with held-out validation selection
-knowledge_distillation.ipynb    method walkthrough and figures
-results.json                    experiment 2 — the proper teacher
-results_weak_teacher.json       experiment 1 — the re-stemmed teacher
-sweep_results.json              experiment 3 — the alpha sweep
+knowledge_distillation.ipynb    the whole project -- method, code, results
+results.json                    all three experiments, as recorded
+index.html                      project page
 assets/                         figures
 ```
 
-Every number in this README is read out of those three JSON files. None were typed in by hand.
-
-An earlier modular scaffold is also kept in the repository:
-
-```
-models/teacher.py  models/student.py  utils/data.py
-train_teacher.py   train_student.py   evaluate.py
-```
-
-It is worth being explicit about its status: that code was written but never run, and an
-earlier version of this README quoted accuracies for it (~93% / 70% / 85%, +15 points) that
-no execution had produced. Those numbers are gone. Note also that `models/teacher.py`
-implements the **re-stemmed** teacher — the design experiment 1 above measures and rejects.
-It is kept because the module structure is useful, not because its configuration is the one
-to use.
+Every number in this README and in the notebook is read out of `results.json`. None were
+typed in by hand.
 
 ## References
 
