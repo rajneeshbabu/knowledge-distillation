@@ -1,5 +1,14 @@
 # Knowledge Distillation — ResNet-50 to a Compact CNN
 
+[![Project Page](https://img.shields.io/badge/Project%20Page-GitHub%20Pages-222?logo=github)](https://rajneeshbabu.github.io/knowledge-distillation/)
+[![Notebook](https://img.shields.io/badge/Notebook-Jupyter-F37626?logo=jupyter&logoColor=white)](knowledge_distillation.ipynb)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org)
+[![Teacher](https://img.shields.io/badge/teacher-90.0%25-fbbf24)](knowledge_distillation.ipynb)
+[![Experiments](https://img.shields.io/badge/experiments-3-f59e0b)](results.json)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
+🌐 **[View the project page →](https://rajneeshbabu.github.io/knowledge-distillation/)**
+
 Train a 289K-parameter CNN twice on the same images, with the same architecture, seed,
 optimiser and schedule. Change one thing: whether it matches the hard one-hot label or the
 soft class distribution a fine-tuned **ResNet-50 teacher** produces.
